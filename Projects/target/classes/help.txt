@@ -1,0 +1,154 @@
+
+
+Feature: Ebay Home Page Scenarios
+
+Scenario: Adavanced Search link
+
+Given I am on Ebay Home page
+When I click on Advanced link
+Then I navigate to Advance search page
+
+
+
+
+
+
+package testRunner;
+
+
+//plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
+//plugin = {"pretty","html:Report.html"}
+//plugin = {"pretty","json:Report2.html"},
+//plugin = {"pretty","junit:Report3.html"},
+//dryRun=true, dryRun=false
+
+import java.io.*;
+import org.junit.AfterClass;
+import org.junit.runner.RunWith;
+import com.cucumber.listener.Reporter;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features = "features",
+		glue= {"steps"},
+		
+plugin = {"pretty","html:Report.html"},
+dryRun=true,
+//strict=true,
+monochrome = true //tags="@p1"
+)
+public class TestRunner {
+
+}
+
+
+
+
+
+
+
+
+package steps;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class Ebay_Home_Steps {
+
+
+	@Given("I am on Ebay Home page")
+	public void i_am_on_ebay_hoome_page() {
+	   System.out.println("I am on Ebay Home page");
+	}
+
+	@When("I click on Advanced link")
+	public void i_click_on_advanced_link() {
+	    System.out.println("I click on Advanced link");
+	}
+
+	@Then("I navigate to Advance search page")
+	public void i_navigate_to_advance_search_page() {
+	   System.out.println("I navigate to Advance search page");
+	}
+
+}
+
+
+
+
+
+
+
+
+package steps;
+
+import static org.junit.Assert.fail;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class Ebay_Home_Steps {
+
+	WebDriver driver=new ChromeDriver();
+
+	@Given("I am on Ebay Home page")
+	public void i_am_on_ebay_hoome_page() {
+		
+		System.setProperty("webdriver.chrome.driver","E:\\SeleniumByJagan\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		driver.get("https://www.ebay.com/");
+	}
+
+	@When("I click on Advanced link")
+	public void i_click_on_advanced_link() {
+	    
+		driver.findElement(By.linkText("Advanced")).click();
+	}
+
+	@Then("I navigate to Advance search page")
+	public void i_navigate_to_advance_search_page() {
+	 
+		String expUrl="https://www.ebay.com/sch/ebayadvsearch";
+		String actUrl=driver.getCurrentUrl();
+		if(!expUrl.equals(actUrl)) {
+			fail("Page does not navigated to expected page");
+		}
+	}
+
+}
+
+
+
+
+
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features = "features/Ebay_Home.feature",   // where we have feature files
+		glue= {"steps"}									// where we have step def		
+		
+//plugin = {"pretty","html:Report"},         ///  report type 
+//plugin = {"pretty","json:Report2"},  
+
+//dryRun=true,										// check for step definitions and ignores the logic
+//strict=true,										// if it is true we need to add all stepdefinitions
+//monochrome = true //tags="@p1"						// output in cosole was better format
+//tags={"@p1"}
+
+)
+
+
+
+when Strict is tru it ignores DryRyn it may true or false
+
+
+

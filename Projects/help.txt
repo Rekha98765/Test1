@@ -1,0 +1,118 @@
+
+
+create maven project
+
+======================
+ <dependencies> 
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+  
+  
+ </dependencies>
+ 
+ =============================
+ 
+ 
+ 
+ 
+ 
+ https://mvnrepository.com/artifact/io.cucumber/cucumber-junit/6.10.4
+ 
+ 
+ 
+ <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>6.10.4</version>
+    <scope>test</scope>
+</dependency>
+ 
+ 
+ 
+ add more dependencies
+ 
+ 
+ ====
+ 
+ add cucumber plugin.
+ 
+ 
+ 
+ go  help menu -> to market place search cucumber and install
+ 
+ 
+right click on project and configure -> convert to cucumber  -> we can see a small C icon on project folder
+ 
+ 
+ 
+ right click in feature file and run as feature file
+ 
+ 
+ 
+ =====================
+ 
+ 
+ public class Ebay_Home_Steps {
+
+
+	@Given("I am on Ebay Hoome page")
+	public void i_am_on_ebay_hoome_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I click on Advanced link")
+	public void i_click_on_advanced_link() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I navigate to Advance search page")
+	public void i_navigate_to_advance_search_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	
+	========
+	
+	package steps;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Ebay_Home_Steps {
+
+
+	@Given("I am on Ebay Hoome page")
+	public void i_am_on_ebay_hoome_page() {
+	   System.out.println("I am on Ebay Hoome page");
+	}
+
+	@When("I click on Advanced link")
+	public void i_click_on_advanced_link() {
+	    System.out.println("I click on Advanced link");
+	}
+
+	@Then("I navigate to Advance search page")
+	public void i_navigate_to_advance_search_page() {
+	   System.out.println("I navigate to Advance search page");
+	}
+
+}
+	
+	
+	=========================
+	
+	
+	create test runner file
+	
+	
